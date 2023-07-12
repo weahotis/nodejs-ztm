@@ -1,0 +1,6 @@
+How do you run jascript ?
+Javascript is being run in the browser. In a way to run Javascript we need  a jaascript engine(V8).
+
+A javascript engine is a program that execue javascript code.
+
+Can You run javaScript without the browser? 
