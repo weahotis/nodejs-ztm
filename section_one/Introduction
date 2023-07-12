@@ -1,6 +1,17 @@
 How do you run jascript ?
-Javascript is being run in the browser. In a way to run Javascript we need  a jaascript engine(V8).
+Javascript is being run in the browser. In a way to run Javascript we need a javascript engine(V8).
 
 A javascript engine is a program that execue javascript code.
 
 Can You run javaScript without the browser? 
+With node js you can run javascript without the browser.
+Node is a javascript runtime.
+
+What is a Javascript Runtime ?
+Runtime is a javascript eniroment. An environment that allows us to run javascript as well as do some extra.
+Node has the V8 engine that makes our javascript code run efficiently.
+If you want to read file or write file or maybe access database or write something, Thats where libuv comes in.
+Node js is simply a way to give or javascript to the javascript environment.
+
+Is a brower a javascript Runtime ?
+Yes a web browser is a javascript Runtime because it has the javascript engine embedded in it.
