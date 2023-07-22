@@ -17,6 +17,10 @@ app.get("/friends", (req, res) => {
   res.json(friends);
 });
 
+app.use((req, res, next)=>{
+    console.log(`${req.method} ${req.url}`);
+    next();
+})
 app.get("/friends/:friendId", (req, res) => {
   const friendId = Number(req.params.friendId)
   if(!friendId){
