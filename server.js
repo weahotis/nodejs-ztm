@@ -1,34 +1,24 @@
 const express = require("express");
-
+const friendsController = require('./controllers/friends.controller')
 const app = express();
 const PORT = 3000;
 
-const friends = [
-  {
-    id: 0,
-    name: "Jenkins Mulbah"
-  },
-  {
-    id: 1,
-    name: "Otis Weah"
-  }
-];
-app.get("/friends", (req, res) => {
-  res.json(friends);
+
+
+app.use((req, res, next) => {
+  const start = Date.now();
+  next();
+  const delta = Date.now() - start;
+  console.log(`${req.method} ${req.url} ms ${delta}`);
 });
 
-app.use((req, res, next)=>{
-    console.log(`${req.method} ${req.url}`);
-    next();
-})
-app.get("/friends/:friendId", (req, res) => {
-  const friendId = Number(req.params.friendId)
-  if(!friendId){
-    res.send(`<ul><li>firend with the id ${friendId} does not exist</li></ul>`)
-  }else {
-    res.send(friends.filter(f=>f.id === friendId))
-  }
-});
+app.use(express.json());
+
+app.post("/friends", friendsController.addFriends);
+
+app.get("/friends", friendsController.getFriends);
+
+app.get("/friends/:friendId", friendsController.getFriendById);
 
 app.get("/", (req, res) => {
   res.send("<ul><li>Hello Otis </li></ul>");
